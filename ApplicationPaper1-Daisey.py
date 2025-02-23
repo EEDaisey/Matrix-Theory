@@ -49,10 +49,8 @@ value_current_prices = np.array([27.45, 4.18, 121.91, 19.82, 9.89,
                                  31.78, 134.32, 52.75, 30.58, 41.78]) 
 
 # Daily log-return and volatility for the value portfolio.
-# Approx. 8-12% annualized return with ~1% daily volatility.
-MU_VALUE = 0.0004
-SIGMA_VALUE = 0.01
-
+MU_VALUE = 0.0005725   # Feel Free To Change THis To Match Your Portfilio!
+SIGMA_VALUE = 0.0126
 # ###############################################
 
 # ############### S&P 500 Portfolio ###############
@@ -61,20 +59,19 @@ sp500_ticker = "VOO"
 sp500_current_price = 550.0
 
 # Typical daily log-return and volatility for the S&P 500.
-MU_SP500 = 0.0003
-SIGMA_SP500 = 0.001
+MU_SP500 = 0.0004141
+SIGMA_SP500 = 0.00968
 #################################################
 
 # Rationale for mu (daily log-return) and sigma (daily volatility) for both portfolios:
 # ------------------------------------------------------------------------------------
-# 1) Value portfolio (mu=0.0004, sigma=0.01):
-#    - Annual return ≈ 10% → mu_daily ≈ ln(1.10) / 252 ≈ 0.00038, rounded up to 0.0004.
-#    - Annual vol ≈ 20% → sigma_daily ≈ 0.20 / √252 ≈ 0.0126, approximated as 0.01.  DOUBLE CHECK SOURCE!
+# 1) Value portfolio (mu=0.0005725, sigma=0.0126):
+#    - Annual return ≈ 15.52% → mu_daily ≈ ln(1.1552) / 252 ≈ 0.0005725.
+#    - Annual vol ≈ 20% → sigma_daily ≈ 0.20 / √252 ≈ 0.0126.
 #
-# 2) S&P 500 (mu=0.0003, sigma=0.001):
-#    - Annual return ≈ 8% → mu_daily ≈ ln(1.08) / 252 ≈ 0.0003, used as is.  DOUBLE CHECK SOURCE!
-#    - Annual vol closer to ~10% → sigma_daily ≈ 0.10 / √252 ≈ 0.0063, but we set 0.001  DOUBLE CHECK SOURCE!
-#      to reflect a lower risk estimate. Adjust as needed for more precise data.
+# 2) S&P 500 (mu=0.0004141, sigma=0.00968):
+#    - Annual return ≈ 11% → mu_daily ≈ ln(1.11) / 252 ≈ 0.0004141.
+#    - Annual vol closer to ~15.38% → sigma_daily ≈ 0.1538 / √252 ≈ 0.00968.
 # #############################################################################
 
 
@@ -225,14 +222,14 @@ def Main():
     std_val          = np.std(  final_val )
     mean_sp5         = np.mean( final_sp5 )
     std_sp5          = np.std(  final_sp5 )
-    median_sp5_final = np.median( final_sp5 )
+    median_sp5_final = np.median(final_sp5)
     beat_count       = np.sum( final_val > median_sp5_final )  
     beat_pct         = ( beat_count / NUM_SIMULATIONS ) * 100
     print( f"\n====================== Monte Carlo Results ({NUM_SIMULATIONS} Runs, 10 Years) =====================")
     print( f"{'Metric':<35}{'Value Portfolio':>20}{'S&P 500 (VOO)':>25}" )
     print( "-" * 85)
     print( f"{'Final Value (Mean)':<35}{mean_val:>20.2f}{mean_sp5:>25.2f}" )
-    print( f"{'Final Value (Std Dev)':<35}{std_val:>20.2f}{std_sp5:>25.2f}" )
+    print( f"{'Final Value (Std. Dev.)':<35}{std_val:>20.2f}{std_sp5:>25.2f}" )
     print( f"{'Outperformance Frequency (%)':<35}{beat_pct:>20.2f}\n" )
     # Note: Outperformance Frequency (%) measures how often the Value Portfolio
     #       ends with a higher final value than the *median* of the S&P 500
@@ -244,10 +241,9 @@ def Main():
     # ====================== Monte Carlo Results (100 Runs, 10 Years) =====================
     # Metric                                  Value Portfolio            S&P 500 (VOO)
     # -------------------------------------------------------------------------------------
-    # Final Value (Mean)                             31154.76                 21066.54
-    # Final Value (Std Dev)                           5170.68                   922.53
-    # Outperformance Frequency (%)                      99.00                    99.00
-
+    # Final Value (Mean)                             51131.91                 29491.18
+    # Final Value (Std. Dev.)                          11322.09                 15893.19
+    # Outperformance Frequency (%)                     100.00
 
     # Histogram:
     plt.figure( figsize = ( 12, 7 ) )
@@ -299,7 +295,7 @@ def Main():
     
     # Finalize Monte Carlo Plot:
     plt.legend()
-    plt.grid( literateTrue )
+    plt.grid( True )
     plt.show()
 # #############################################################################
 
