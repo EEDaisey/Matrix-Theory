@@ -32,16 +32,16 @@ SEED_VALUE = 10000      # Initial Seed.
 # Below is the list of stocks in the value portfolio. Each stock is allocated
 # $1,000 in order to purchase whole shares in the company.
 value_tickers = [
-    "CNK",  # Cinemark Holdings - Operates movie theaters.
-    "HAIN", # Hain Celestial Group - Makes natural and organic foods.
-    "LAMR", # Lamar Advertising Company - Focuses on billboard advertising.
-    "MAC",  # Macerich Company - Real estate investment trust with malls.
-    "MG",   # Mistras Group - Offers asset protection and inspection services.
-    "PEBO", # Peoples Bancorp - A regional bank and financial services provider.
-    "PLPC", # Preformed Line Products - Produces cable anchoring and hardware.
-    "SIG",  # Signet Jewelers - Jewelry retailer with multiple brands.
-    "THS",  # TreeHouse Foods - Private-label packaged foods manufacturer.
-    "VAL"   # Valaris Limited - An offshore drilling contractor.
+    "CNK",  # Cinemark Holdings
+    "HAIN", # Hain Celestial Group
+    "LAMR", # Lamar Advertising Company
+    "MAC",  # Macerich Company
+    "MG",   # Mistras Group
+    "PEBO", # Peoples Bancorp
+    "PLPC", # Preformed Line Products
+    "SIG",  # Signet Jewelers
+    "THS",  # TreeHouse Foods
+    "VAL"   # Valaris Limited
 ]
 
 # Current prices (USD) for the aforementioned stocks. Taken on 22 February 2025. 
