@@ -225,7 +225,7 @@ def Main():
     std_val          = np.std(  final_val )
     mean_sp5         = np.mean( final_sp5 )
     std_sp5          = np.std(  final_sp5 )
-    median_sp5_final = np.median(final_sp5)
+    median_sp5_final = np.median( final_sp5 )
     beat_count       = np.sum( final_val > median_sp5_final )  
     beat_pct         = ( beat_count / NUM_SIMULATIONS ) * 100
     print( f"\n====================== Monte Carlo Results ({NUM_SIMULATIONS} Runs, 10 Years) =====================")
