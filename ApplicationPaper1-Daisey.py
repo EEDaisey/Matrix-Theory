@@ -265,7 +265,7 @@ def Main():
     plt.figure( figsize=( 12, 7 ) )
     plt.title( 'Sample 10-Year Monte Carlo Paths: Value vs. S&P 500', fontsize = 14 )
     plt.xlabel( 'Trading Day', fontsize = 12 )
-    plt.ylabel( 'Portfolio Value', fontsize = 12 )
+    plt.ylabel( 'Portfolio Value ($)', fontsize = 12 )
   
     # Random Number Generator For Monte Carlo Plot:    
     rng_sample = Generator( PCG64( int( time.time() ) ) )
